@@ -59,12 +59,16 @@
              required
       >
     </div>
-    <div class="button-group my-3">
-      <button type="button" data-bs-dismiss="modal" aria-label="Close" class="btn btn-secondary">
-        cancel
+    <div class="d-flex justify-content-between my-3">
+      <button type="button" data-bs-dismiss="modal" aria-label="Close" class="btn text-dark lighten-20 text-uppercase selectable">
+        <b>
+          cancel
+        </b>
       </button>
-      <button type="submit" class="btn btn-primary">
-        submit
+      <button type="submit" class="btn text-primary text-uppercase selectable">
+        <b>
+          submit
+        </b>
       </button>
     </div>
   </form>
