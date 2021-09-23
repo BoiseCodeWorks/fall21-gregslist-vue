@@ -2,7 +2,13 @@
   <form @submit.prevent="handleSubmit">
     <div class="form-group">
       <label for="make" class="">Make:</label>
-      <select v-model="editable.make" name="make" id="make" required class="form-control">
+      <select
+        v-model="editable.make"
+        name="make"
+        id="make"
+        required
+        class="form-control"
+      >
         <option disabled selected value="">
           Please Choose your car make
         </option>
@@ -15,17 +21,20 @@
     </div>
     <div class="form-group">
       <label for="model" class="">Model:</label>
-      <input v-model="editable.model"
-             type="text"
-             class="form-control"
-             name="model"
-             id="model"
-             required
+      <input
+        placeholder="Model"
+        v-model="editable.model"
+        type="text"
+        class="form-control"
+        name="model"
+        id="model"
+        required
       >
     </div>
     <div class="form-group">
       <label for="price" class="">Price:</label>
       <input
+        placeholder="Price"
         v-model="editable.price"
         type="number"
         class="form-control"
@@ -37,26 +46,37 @@
     </div>
     <div class="form-group">
       <label for="year" class="">year:</label>
-      <input v-model="editable.year" type="year" class="form-control" name="year" id="year">
+      <input
+        placeholder="year"
+        v-model="editable.year"
+        type="year"
+        class="form-control"
+        name="year"
+        id="year"
+      >
     </div>
     <div class="form-group">
       <label for="description" class="">description:</label>
-      <textarea v-model="editable.description"
-                type="text"
-                class="form-control"
-                name="description"
-                id="description"
-                rows="5"
+      <textarea
+        placeholder="Description"
+        v-model="editable.description"
+        type="text"
+        class="form-control"
+        name="description"
+        id="description"
+        rows="5"
       ></textarea>
     </div>
     <div class="form-group">
       <label for="img" class="">img:</label>
-      <input v-model="editable.img"
-             type="url"
-             class="form-control"
-             name="img"
-             id="img"
-             required
+      <input
+        placeholder="https://imgurl.com"
+        v-model="editable.img"
+        type="url"
+        class="form-control"
+        name="img"
+        id="img"
+        required
       >
     </div>
     <div class="d-flex justify-content-between my-3">
@@ -110,12 +130,7 @@ export default {
           Pop.toast(error.message, 'error')
         }
       }
-
     }
   }
 }
 </script>
-
-<style>
-
-</style>

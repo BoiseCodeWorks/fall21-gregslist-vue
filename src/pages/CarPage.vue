@@ -1,32 +1,62 @@
 <template>
   <div v-if="car" class="py-4">
-    <div class="d-flex flex-wrap w-100">
-      <Car :car="car" class="car-details" />
-      <div class="ms-4 flex-grow-1">
-        <p>
-          <b>Contact Seller</b>
-        </p>
-        <div class="d-flex clip-text align-items-center">
-          <img :src="car.creator.picture" alt="" class="rounded-circle" height="64">
-          <h4 class="ms-3">
-            {{ car.creator.name }}
-          </h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 m-auto">
+          <Car :car="car" />
         </div>
-        <div v-if="car.creatorId === account.id">
-          <p class="my-3">
-            <b>Listing Controls</b>
-          </p>
-          <div class="">
-            <button class="btn text-dark lighten-20" @click="remove(car)">
-              <b>
-                Remove Listing
-              </b>
-            </button>
-            <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#edit-modal">
-              <b>
-                Edit
-              </b>
-            </button>
+      </div>
+
+      <!-- CAR -->
+      <div class="row">
+        <div class="col-lg-8 m-auto">
+          <div class="bg-white rounded p-4 elevation-2">
+            <!-- DETAILS -->
+            <div class="car-details">
+              <h3 class="d-flex align-items-center justify-content-between text-capitalize">
+                <span>
+                  {{ car.year }} {{ car.make }} - {{ car.model }}
+                </span>
+                <span>${{ car.price }}</span>
+              </h3>
+              <p class="mt-3 pt-3 border-top">
+                {{ car.description }}
+              </p>
+            </div>
+            <!-- SELLER -->
+            <div class="seller-info mt-3">
+              <p>
+                <b>Contact Seller</b>
+              </p>
+              <div class="d-flex clip-text align-items-center">
+                <img :src="car.creator.picture" alt="" class="rounded" height="40">
+                <b class="ms-3">
+                  <i class="mdi mdi-account"></i>
+                  {{ car.creator.name }}
+                </b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CREATOR CONTROLS -->
+      <div class="row my-4" v-if="car.creatorId === account.id">
+        <div class="col-lg-8 m-auto">
+          <div class="bg-white rounded elevation-2 p-4 border-danger border">
+            <div class="d-flex justify-content-between">
+              <button class="btn text-dark lighten-20 selectable" @click="remove(car)">
+                <b>
+                  Remove Listing
+                </b>
+              </button>
+              <button class="btn text-danger lighten-20 selectable" data-bs-toggle="modal" data-bs-target="#edit-modal">
+                <i class="mdi mdi-pencil"></i>
+                <b>
+                  EDIT
+                </b>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -81,8 +111,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.car-details{
-  max-width: 50vw;
-}
 
 </style>

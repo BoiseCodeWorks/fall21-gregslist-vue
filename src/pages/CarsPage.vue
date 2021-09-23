@@ -9,7 +9,7 @@
     </div>
     <div class="row">
       <!-- REVIEW PROPS -->
-      <Car v-for="car in cars" :key="car.id" :car="car" class="col-lg-3" />
+      <Car v-for="car in cars" :key="car.id" :car="car" class="col-lg-4" />
     </div>
 
     <Modal id="car-form">
