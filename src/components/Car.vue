@@ -1,7 +1,7 @@
 <template>
   <div class="listing">
     <router-link :to="{name: 'Car', params: { carId: car.id }}" :title="car.make">
-      <div class="card selectable">
+      <div class="card selectable text-dark">
         <!-- REVIEW PROPS -->
         <div class="position-relative w-100">
           <div class="gradient">
