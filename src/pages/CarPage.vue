@@ -54,10 +54,10 @@ import { useRoute } from 'vue-router'
 import { AppState } from '../AppState.js'
 import Pop from '../utils/Pop.js'
 import { router } from '../router.js'
+
 export default {
   setup() {
     const route = useRoute()
-
     onMounted(() => {
       carsService.getCarById(route.params.carId)
     })

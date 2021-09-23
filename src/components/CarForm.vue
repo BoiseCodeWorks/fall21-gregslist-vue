@@ -77,9 +77,11 @@
 <script>
 import { ref } from '@vue/reactivity'
 import { Car } from '../models/Car.js'
-import { watchEffect } from '@vue/runtime-core'
+import { computed, watchEffect } from '@vue/runtime-core'
 import { carsService } from '../services/CarsService.js'
 import Pop from '../utils/Pop.js'
+import { Modal } from 'bootstrap'
+
 export default {
   // REVIEW PROPS
   props: {
@@ -87,7 +89,6 @@ export default {
   },
   setup(props) {
     const editable = ref({})
-
     watchEffect(() => {
       editable.value = { ...props.car }
     })
@@ -95,16 +96,16 @@ export default {
     return {
       editable,
       async handleSubmit() {
-        // editable.value.id
-        //   ? await carsService.editCar(editable.value)
-        //   : await carsService.createCar(editable.value)
         try {
           if (editable.value.id) {
             await carsService.editCar(editable.value)
           } else {
             await carsService.createCar(editable.value)
+            editable.value = {}
           }
-          editable.value = {}
+          // TODO close modal
+          const modal = Modal.getInstance(document.getElementById('edit-modal'))
+          modal.hide()
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
