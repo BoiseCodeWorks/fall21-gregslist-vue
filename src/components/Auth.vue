@@ -1,7 +1,26 @@
 <template>
   <div class="text-white py-4">
     <div class="clip-text d-flex justify-content-between" v-if="account.id">
-      <img :src="account.picture" alt="" class="rounded" height="45">
+      <img :src="account.picture"
+           alt=""
+           class="rounded selectable"
+           height="45"
+           data-bs-toggle="dropdown"
+           aria-expanded="false"
+           id="account-dropdown"
+      >
+      <ul class="dropdown-menu" aria-labelledby="account-dropdown">
+        <li>
+          <router-link class="dropdown-item" :to="{name: 'Account.Settings', params: {accountId: account.id }}">
+            Account Settings
+          </router-link>
+        </li>
+        <li>
+          <router-link class="dropdown-item" :to="{name: 'Account.Listings', params: {accountId: account.id }}">
+            Your Listings
+          </router-link>
+        </li>
+      </ul>
       <button class="btn selectable text-danger lighten-30" @click="logout" title="Logout">
         <i class="mdi mdi-power f-20"></i>
       </button>

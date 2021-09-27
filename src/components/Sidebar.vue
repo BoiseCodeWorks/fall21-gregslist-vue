@@ -9,6 +9,11 @@
       <div class="links">
         <ul class="nav-links ps-0">
           <li class="nav-link">
+            <router-link class="selectable rounded p-2 text-success lighten-30" :to="{name: 'About'}">
+              About
+            </router-link>
+          </li>
+          <li class="nav-link">
             <router-link class="selectable rounded p-2 text-success lighten-30" :to="{name: 'Cars'}">
               Cars
             </router-link>
