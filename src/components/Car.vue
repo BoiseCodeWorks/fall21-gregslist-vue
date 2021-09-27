@@ -19,6 +19,9 @@
 <script>
 import { logger } from '../utils/Logger.js'
 import { Car } from '../models/Car.js'
+import { AppState } from '../AppState.js'
+import { AuthService } from '../services/AuthService.js'
+import Pop from '../utils/Pop.js'
 
 export default {
   // REVIEW PROPS
@@ -30,6 +33,17 @@ export default {
       deleteCar() {
         logger.log('working?')
       }
+      // async likeCar() {
+      //   if (!AppState.account.id) {
+      //     try {
+      //       await AuthService.loginWithPopup()
+      //     } catch (e) {
+      //       Pop.toast('You must login to like this post')
+      //       return // Prevents the next line from executing
+      //     }
+      //     postsService.likePost()
+      //   }
+      // }
     }
   }
 }
