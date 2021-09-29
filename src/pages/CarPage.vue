@@ -23,6 +23,24 @@
                 {{ car.description }}
               </p>
             </div>
+
+            <!-- BIDS -->
+            <div class="car-bids">
+              <div class="highest-bidder d-flex align-items-center justify-content-between" v-if="topBidder">
+                <div class="d-flex align-items-center">
+                  <h1>${{ topBidder.bid }}</h1>
+                  <img :src="topBidder.bidder.picture" alt="" height="45" class="rounded-circle ms-3" :title="topBidder.bidder.name">
+                </div>
+                <div>
+                  <p class="m-0">
+                    <kbd>
+                      Bids: {{ bids.length }}
+                    </kbd>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <CarBidForm :car="car" />
             <!-- SELLER -->
             <div class="seller-info mt-3">
               <p>
@@ -95,6 +113,8 @@ export default {
     return {
       account: computed(() => AppState.account),
       car: computed(() => AppState.car),
+      bids: computed(() => AppState.bids),
+      topBidder: computed(() => AppState.bids[0]),
       async remove(car) {
         try {
           const yes = await Pop.confirm('Are you really sure?')

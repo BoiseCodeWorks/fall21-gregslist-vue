@@ -19,9 +19,6 @@
 <script>
 import { logger } from '../utils/Logger.js'
 import { Car } from '../models/Car.js'
-import { AppState } from '../AppState.js'
-import { AuthService } from '../services/AuthService.js'
-import Pop from '../utils/Pop.js'
 
 export default {
   // REVIEW PROPS
